@@ -310,7 +310,9 @@ classdef plotlyfig < handle
             
             % validate layout fields
             obj.stripkeys(obj.layout, 'layout', 'style');
-            
+            barlen = (max(obj.data{d}.x)-min(obj.data{d}.x))/length(obj.data{d}.x);
+            obj.layout.xaxis1.range = [min(obj.data{d}.x)-barlen max(obj.data{d}.x)+barlen];
+
         end
         
         %----GET PLOTLY FIGURE-----%
